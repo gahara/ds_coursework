@@ -1,0 +1,17 @@
+- if authenticated?.nil?
+  %p You are not logged in!
+  %p
+    %a{href: "/login"} Login
+
+- else
+  %form{method: 'post'}
+    %p
+      Your message:
+      %input{type: 'text', name: 'message'}
+
+    %button Submit
+
+  - @notes.each do |note|
+    %p=  note.message
+    %p
+      %a{href: "/notes/#{note.id}/delete" } Delete

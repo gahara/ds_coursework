@@ -1,0 +1,12 @@
+- if authenticated?.nil?
+  %p You are not logged in!
+  %p
+    %a{href: "/register"} Register
+  %p
+    %a{href: "/login"} Log in
+- else
+  %p You are logged in as #{authenticated?.name}
+  %p
+    %form{method: 'post', action: '/logout'}
+      %button Logout
+  %a{href: "/notes"} Add new note
